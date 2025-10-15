@@ -3,11 +3,11 @@ import Nav from './Nav'
 import { Outlet } from 'react-router'
 import Footer from './Footer'
 import { useContext } from 'react'
-import { AuthContext } from './contexts/AuthContext'
+// import { AuthContext } from './contexts/AuthContext'
 import Loader from './pages/Loaders/Loader'
 
 const Layout = () => {
-  const {loading} = useContext(AuthContext)
+  const loading = null
 
   return (
     <div>
