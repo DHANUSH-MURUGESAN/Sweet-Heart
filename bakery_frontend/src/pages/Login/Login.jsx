@@ -110,26 +110,26 @@ const Login = () => {
   {
     /*Google Login handler (async/await + toasts + navigation)*/
   }
-  const handleLogin = async () => {
-    try {
-      const result = await signupWithGmail();
-      const user = result.user;
-      console.log("Google login successfull:", user);
-      toast.success("Google login successfull!", {
-        position: "top-right",
-        autoClose: 2000,
-        theme: "colored",
-      });
-      navigate("/");
-    } catch (error) {
-      console.error("Google login error:", error);
-      toast.error("Google login failed: " + (error?.message || ""), {
-        position: "top-right",
-        autoClose: 4000,
-        theme: "colored",
-      });
-    }
-  };
+  // const handleLogin = async () => {
+  //   try {
+  //     const result = await signupWithGmail();
+  //     const user = result.user;
+  //     console.log("Google login successfull:", user);
+  //     toast.success("Google login successfull!", {
+  //       position: "top-right",
+  //       autoClose: 2000,
+  //       theme: "colored",
+  //     });
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.error("Google login error:", error);
+  //     toast.error("Google login failed: " + (error?.message || ""), {
+  //       position: "top-right",
+  //       autoClose: 4000,
+  //       theme: "colored",
+  //     });
+  //   }
+  // };
 
   return (
     <div className="bg-cream p-6 min-h-screen flex flex-col justify-center items-center">
