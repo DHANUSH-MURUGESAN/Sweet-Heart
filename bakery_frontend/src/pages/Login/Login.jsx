@@ -29,8 +29,6 @@ const Login = () => {
     }));
   };
 
-  const API_URL = import.meta.env.API;
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -38,7 +36,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        `${API_URL}/login`,
+        "http://localhost:5050/login",
         formData
       );
       console.log("Login success:", response.data);
