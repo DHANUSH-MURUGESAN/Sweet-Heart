@@ -23,6 +23,8 @@ const Signup = () => {
     }));
   };
 
+  const API_URL = import.meta.env.API;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -30,7 +32,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5050/signup",
+        `${API_URL}/signup`,
         formData
       );
       console.log("Signup success:", response.data);
