@@ -1,6 +1,6 @@
-# Sweet-Heart
+# Sweet Heart
 
-**Sweet-Heart** is a beautiful and responsive web application designed for sweet lovers. It allows users to explore a wide variety of **sweets, savories, and cakes & pastries** with an elegant interface and seamless shopping experience.
+**Sweet Heart** is a beautiful and responsive web application designed for sweet lovers. It allows users to explore a wide variety of **sweets, savories, and cakes & pastries** with an elegant interface and seamless shopping experience.
 
 ---
 
@@ -24,3 +24,13 @@
 ## ❤️ Inspiration
 
 This project is made with love for everyone who has a **Sweet Heart!**
+
+
+---
+
+## 🧑‍💻 Author
+
+Developed by Dhanush.M
+
+💼 MERN Stack Developer </br>
+📧 Reach me at: <a href="https://www.linkedin.com/in/dhanush-murugesan-stm/">LinkedIn</a>
