@@ -36,7 +36,7 @@ const Login = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5050/login",
+        `${import.meta.env.VITE_BACKEND_URL}/login`,
         formData
       );
       console.log("Login success:", response.data);

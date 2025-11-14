@@ -21,7 +21,7 @@ const Profile = () => {
 
   const getuser = async (id) => {
     try {
-      const Userdata = await axios.get(`http://localhost:5050/getuser/${id}`);
+      const Userdata = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/getuser/${id}`);
       if (!Userdata) return window.alert("user not exits");
       console.log(Userdata?.data?.existUser, "profile user");
       setUser(Userdata?.data?.existUser);
@@ -62,7 +62,7 @@ const Profile = () => {
       // Google login → profile pic
       return (
         <img
-          src={`http://localhost:5050/files/${user.profilePhoto}`}
+          src={`${import.meta.env.VITE_BACKEND_URL}/files/${user.profilePhoto}`}
           alt="Profile"
           className="w-10 h-10 rounded-full object-cover"
         />

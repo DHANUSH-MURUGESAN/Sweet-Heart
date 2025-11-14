@@ -19,7 +19,7 @@ const Orders = () => {
     const token = localStorage.getItem("authToken"); // from login
     if (!token) return;
     axios
-      .get("http://localhost:5050/orders", {
+      .get(`${import.meta.env.VITE_BACKEND_URL}/orders`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => setOrders(res.data.orders))
@@ -28,7 +28,7 @@ const Orders = () => {
 
   const handleCancel = async (orderId) => {
     try {
-      const res = await axios.delete(`http://localhost:5050/orders/${orderId}`);
+      const res = await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/orders/${orderId}`);
 
       if (res.data.success) {
         toast.success("Order cancelled successfully!", { autoClose: 2000 });

@@ -57,7 +57,7 @@ const Cart = () => {
                   className="bg-white shadow-lg rounded-xl p-4 flex flex-col justify-between"
                 >
                   <img
-                    src={`http://localhost:5050/files/${item.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/files/${item.image}`}
                     alt={item.recipe}
                     className="h-40 w-full object-contain mb-4 rounded"
                   />

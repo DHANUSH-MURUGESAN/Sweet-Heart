@@ -30,7 +30,7 @@ const Signup = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:5050/signup",
+        `${import.meta.env.VITE_BACKEND_URL}/signup`,
         formData
       );
       console.log("Signup success:", response.data);

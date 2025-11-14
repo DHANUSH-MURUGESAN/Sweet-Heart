@@ -696,7 +696,7 @@ const Checkout = () => {
         ...extraData,
       };
 
-      const res = await axios.post("http://localhost:5050/orders", orderData, {
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/orders`, orderData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 
@@ -777,7 +777,7 @@ const Checkout = () => {
                   className="bg-lavender shadow-lg rounded-xl p-4 flex flex-col justify-between"
                 >
                   <img
-                    src={`http://localhost:5050/files/${item.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/files/${item.image}`}
                     alt={item.recipe}
                     className="h-40 w-full object-contain mb-4 rounded"
                   />

@@ -29,7 +29,7 @@ const MenuItemDetail = () => {
     if (!item) return;
     const checkWishlist = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/wishlist/${userId}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/wishlist/${userId}`);
         const wishlistItems = res.data || [];
         const alreadyLiked = wishlistItems.some((i) => i.itemId === item._id);
         setHeartFill(alreadyLiked);
@@ -92,7 +92,7 @@ const MenuItemDetail = () => {
   if (newState) {
     // like → add to wishlist
     try {
-      await axios.post("http://localhost:5050/wishlist/add", {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/wishlist/add`, {
         userid: userId,
         item,
       });
@@ -103,7 +103,7 @@ const MenuItemDetail = () => {
   } else {
     // unlike → remove from wishlist
     try {
-      await axios.delete(`http://localhost:5050/wishlist/remove/${userId}/${itemId}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/wishlist/remove/${userId}/${itemId}`, {
         data: { userId, itemId: item._id },
       });
     } catch (err) {
@@ -116,7 +116,7 @@ const MenuItemDetail = () => {
   useEffect(() => {
     const fetchItem = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/display`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/display`);
         const items = res.data.data || [];
         const foundItem = items.find((i) => i._id === id);
         setItem(foundItem);
@@ -152,7 +152,7 @@ const MenuItemDetail = () => {
           <div className="flex justify-center items-center mx-10">
             <div className="bg-gradient-to-r from-choco to-caramel rounded-3xl py-6 px-10">
               <img
-                src={`http://localhost:5050/files/${item.image}`}
+                src={`${import.meta.env.VITE_BACKEND_URL}/files/${item.image}`}
                 alt={item.recipe}
                 className="w-80 h-80 object-contain"
               />

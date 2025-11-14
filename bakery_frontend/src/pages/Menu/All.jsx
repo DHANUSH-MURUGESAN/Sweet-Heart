@@ -342,7 +342,7 @@ const MenuPage = () => {
   const navigate = useNavigate();
   const fetchData = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/display");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/display`);
       const data = res.data.data || [];
       setMenu(data);
       setFilteredItems(data);
