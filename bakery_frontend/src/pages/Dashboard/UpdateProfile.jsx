@@ -24,7 +24,7 @@ const UpdateProfile = () => {
 
   const getuser = async (id) => {
     try {
-      const Userdata = await axios.get(`http://localhost:5050/getuser/${id}`);
+      const Userdata = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/getuser/${id}`);
       if (!Userdata) return window.alert("user not exits");
       console.log(Userdata?.data?.existUser, "profile user");
       setUser(Userdata?.data?.existUser);
@@ -60,7 +60,7 @@ const UpdateProfile = () => {
       if (photo) formData.append("photo", photo);
 
       await axios.put(
-        `http://localhost:5050/update-profile/${userId}`,
+        `${import.meta.env.VITE_BACKEND_URL}/update-profile/${userId}`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

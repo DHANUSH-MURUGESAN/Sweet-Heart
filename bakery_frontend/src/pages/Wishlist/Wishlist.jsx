@@ -129,7 +129,7 @@ const Wishlist = () => {
   // Remove item
   const removeFromWishlist = async (itemId) => {
     try {
-      await axios.delete(`http://localhost:5050/wishlist/remove/${userId}/${itemId}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/wishlist/remove/${userId}/${itemId}`, {
         data: { userId, itemId },
       });
       // Refresh after delete
@@ -160,7 +160,7 @@ const Wishlist = () => {
               >
                 <Link to={`/menu/${item.itemId}`}>
                   <img
-                    src={`http://localhost:5050/files/${item.image}`}
+                    src={`${import.meta.env.VITE_BACKEND_URL}/files/${item.image}`}
                     alt={item.recipe}
                     className="h-40 object-contain mx-auto"
                   />

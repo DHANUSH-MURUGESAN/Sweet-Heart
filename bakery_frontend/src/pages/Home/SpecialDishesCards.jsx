@@ -97,7 +97,7 @@ const SpecialDishesCards = ({ item }) => {
   useEffect(() => {
     const fetchWishlist = async () => {
       try {
-        const res = await axios.get(`http://localhost:5050/wishlist/${userId}`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/wishlist/${userId}`);
         const wishlistItems = res.data || [];
         const alreadyLiked = wishlistItems.some((i) => i.itemId === item._id);
         setHeartFill(alreadyLiked);
