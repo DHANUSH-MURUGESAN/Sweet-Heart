@@ -162,7 +162,7 @@ const SpecialDishesCards = ({ item }) => {
   if (newState) {
     // Add to wishlist
     try {
-      await axios.post("http://localhost:5050/wishlist/add", {
+      await axios.post(`${import.meta.env.VITE_BACKEND_URL}/wishlist/add`, {
         userid: userId,
         item,
       });
@@ -173,7 +173,7 @@ const SpecialDishesCards = ({ item }) => {
   } else {
     // Remove from wishlist
     try {
-      await axios.delete(`http://localhost:5050/wishlist/remove/${userId}/${itemId}`, {
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/wishlist/remove/${userId}/${itemId}`, {
         data: { userId, itemId: item._id },
       });
     } catch (err) {
@@ -206,7 +206,7 @@ const SpecialDishesCards = ({ item }) => {
         {/* Image */}
         <Link to={`/menu/${item._id}`}>
           <img
-            src={`http://localhost:5050/files/${item.image}`}
+            src={`${import.meta.env.VITE_BACKEND_URL}/files/${item.image}`}
             alt={item.recipe}
             className="h-40 mx-auto object-contain transition-transform hover:scale-110 duration-200"
           />

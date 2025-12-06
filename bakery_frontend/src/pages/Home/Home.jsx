@@ -400,7 +400,7 @@ const Home = () => {
 }, []);
 
   useEffect(() => {
-    fetch("http://localhost:5050/display")
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/display`)
     .then((res) => res.json())
     .then((resData) => {
       const items = resData.data || []; 
