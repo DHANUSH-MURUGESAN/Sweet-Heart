@@ -116,7 +116,7 @@ const Nav = () => {
 
   const fetchMenu = async () => {
     try {
-      const res = await axios.get("http://localhost:5050/display");
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/display`);
       setMenuItems(res.data.data || []);
     } catch (err) {
       console.error("Error fetching menu:", err);
