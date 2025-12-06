@@ -4,7 +4,7 @@ import axios from "axios";
 import { FiSearch } from "react-icons/fi";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState("catalog"); // ✅ Sidebar state
+  const [activeTab, setActiveTab] = useState("catalog"); // Sidebar state
   const [menu, setmenu] = useState([]);
   const [orders, setOrders] = useState([]);
   const fileInputRef = useRef(null);
@@ -45,7 +45,7 @@ const AdminDashboard = () => {
       data.append("price", formData.price);
       data.append("ratings", formData.ratings);
 
-      const response = await axios.post("http://localhost:5050/create", data, {
+      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/create`, data, {
         headers: { "Content-Type": "multipart/form-data" },
       });
 
@@ -67,7 +67,7 @@ const AdminDashboard = () => {
   // Get Menu
   const getMenu = async () => {
     try {
-      const response = await axios.get("http://localhost:5050/display");
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/display`);
       setmenu(response.data.data);
     } catch (error) {
       console.log("Menu is not displayed", error.message);
@@ -84,7 +84,7 @@ const AdminDashboard = () => {
   // Get Orders
   const getOrders = async () => {
     try {
-      const response = await axios.get("http://localhost:5050/orders");
+      const response = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/orders`);
       setOrders(response.data.orders || []);
     } catch (error) {
       console.log("Orders not fetched", error.message);
@@ -113,7 +113,7 @@ const AdminDashboard = () => {
   // Delete Menu
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5050/delete/${id}`);
+      await axios.delete(`${import.meta.env.VITE_BACKEND_URL}/delete/${id}`);
       setmenu((menu) => menu.filter((list) => list._id !== id));
     } catch (error) {
       console.log("Menu is not deleted", error.message);
@@ -136,7 +136,7 @@ const AdminDashboard = () => {
       }
 
       const response = await axios.put(
-        `http://localhost:5050/update/${formData._id}`,
+        `${import.meta.env.VITE_BACKEND_URL}/update/${formData._id}`,
         fd,
         { headers: { "Content-Type": "multipart/form-data" } }
       );
@@ -357,7 +357,7 @@ const AdminDashboard = () => {
                           <td className="border px-4 py-2">
                             {list.image ? (
                               <img
-                                src={`http://localhost:5050/files/${list.image}`}
+                                src={`${import.meta.env.VITE_BACKEND_URL}/files/${list.image}`}
                                 alt={list.recipe}
                                 className="w-16 h-16 object-cover rounded"
                               />
@@ -471,7 +471,7 @@ const AdminDashboard = () => {
                               onChange={async (e) => {
                                 try {
                                   const res = await axios.put(
-                                    `http://localhost:5050/orders/${order._id}/status`,
+                                    `${import.meta.env.VITE_BACKEND_URL}/orders/${order._id}/status`,
                                     { status: e.target.value }
                                   );
                                   setOrders((prev) =>
