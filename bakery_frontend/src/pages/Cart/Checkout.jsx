@@ -926,7 +926,7 @@ const Checkout = () => {
                     onChange={(e) =>
                       setCardNumber(e.target.value.replace(/\D/g, ""))
                     }
-                    maxLength="16"
+                    maxLength="19"
                     placeholder="Enter 16-digit card number"
                     className="p-3 border rounded-lg w-full tracking-widest text-lg"
                   />

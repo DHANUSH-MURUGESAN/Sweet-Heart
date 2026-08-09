@@ -18,9 +18,9 @@ router.get("/display", productController.productShowController)
 router.put("/update/:id", uploads.single("image"), productController.productUpdateController)
 router.delete("/delete/:id", productController.productDeleteController)
 //Order Details
-router.post("/orders", orderController.createOrder);
-router.get("/orders/:userId", orderController.getOrders);
-router.get("/orders", orderController.getAllOrders);
+router.post("/orders", orderController.createOrder); //Place new order
+router.get("/orders/:userId", orderController.getOrders); // Get orders for a user
+router.get("/orders", orderController.getAllOrders); // Admin — get all orders
 router.delete("/orders/:id", orderController.cancelOrder);
 router.put("/orders/:id/status", orderController.updateStatus);
 //Wishlist Details
